@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>After-Visit Translator — Plain language for your instructions</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="app-header">
+  <h1>After-Visit Translator</h1>
+  <p class="tagline">Paste your discharge instructions. Get a plain-language version you can actually use.</p>
+</header>
+
+<main id="app">
+
+  <!-- Input -->
+  <section class="card" id="inputSection">
+    <label class="field-label" for="inputDoc">Paste or type your after-visit summary or discharge instructions</label>
+    <textarea id="inputDoc" rows="10" placeholder="Paste the text from your printout here..." maxlength="20000"></textarea>
+    <div class="input-row">
+      <span id="charCount" class="hint">0 characters</span>
+      <button type="button" class="btn btn-primary" id="btnSimplify">Simplify this</button>
+    </div>
+    <p id="inputError" class="error hidden"></p>
+  </section>
+
+  <!-- Loading -->
+  <section class="card hidden" id="loadingSection">
+    <p>Reading your document and rewriting it in plain language...</p>
+  </section>
+
+  <!-- Result -->
+  <section class="hidden" id="resultSection">
+
+    <div class="persistent-note">
+      <strong>This is a simplified version.</strong> Your original instructions are what count. Always follow the exact doses and instructions from your care team.
+    </div>
+
+    <div class="side-by-side">
+      <div class="card">
+        <h2>Plain language</h2>
+        <div id="simplifiedContent"></div>
+      </div>
+      <div class="card original-card">
+        <h2>Your original text</h2>
+        <pre id="originalText"></pre>
+      </div>
+    </div>
+
+    <div class="card chat-card">
+      <h2>Ask a question about your document</h2>
+      <p class="hint">Answered only from your pasted document — nothing else.</p>
+      <div id="chatLog" class="chat-log" aria-live="polite"></div>
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="e.g., How many days do I take the antibiotic?" maxlength="500" />
+        <button type="button" class="btn btn-primary" id="btnAsk">Ask</button>
+      </div>
+      <p id="chatError" class="error hidden"></p>
+    </div>
+
+    <button type="button" class="btn btn-secondary btn-large" id="btnStartOver">Start over with a new document</button>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <p>Nothing you paste here is saved after you close or reload this page.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

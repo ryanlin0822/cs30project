@@ -1,0 +1,16 @@
+{
+  "name": "visit-translator",
+  "version": "1.0.0",
+  "description": "Turns after-visit summaries and discharge instructions into plain language, using the Claude API. No data is stored after the session ends.",
+  "type": "module",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.70.0",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2"
+  }
+}
